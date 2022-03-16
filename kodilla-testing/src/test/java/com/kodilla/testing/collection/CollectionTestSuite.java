@@ -1,6 +1,8 @@
 package com.kodilla.testing.collection;
 
-import org.junit.*;
+
+
+import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,17 +10,17 @@ import java.util.List;
 public class CollectionTestSuite {
 
     private static OddNumbersExterminator oddNumbersExterminator;
-    @Before
+    @BeforeEach
     public void before(){
         System.out.println("Test Case: begin");
     }
 
-    @After
+    @AfterEach
     public void after(){
         System.out.println("Test Case: end");
     }
 
-    @BeforeClass
+    @BeforeAll
     public static void beforeClass(){
         oddNumbersExterminator = new OddNumbersExterminator();
     }
@@ -32,7 +34,7 @@ public class CollectionTestSuite {
         List<Integer> resultList = oddNumbersExterminator.exterminate(emptyList);
         System.out.println("Testing empty list");
         //Then
-        Assert.assertEquals(emptyList, resultList);
+        Assertions.assertEquals(emptyList, resultList);
     }
 
     @Test
@@ -56,6 +58,6 @@ public class CollectionTestSuite {
         List<Integer> resultList = oddNumbersExterminator.exterminate(normalList);
         System.out.println("Testing normal list");
         //Then
-        Assert.assertEquals(expectedResultList, resultList);
+        Assertions.assertEquals(expectedResultList, resultList);
     }
 }

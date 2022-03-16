@@ -1,23 +1,22 @@
-package com.kodilla.testing.forum.collection.shape;
+package com.kodilla.testing.shape;
 
-import com.kodilla.testing.shape.*;
-import com.kodilla.testing.shape.Triangle;
-import org.junit.*;
+
+import org.junit.jupiter.api.*;
 
 public class ShapeCollectorTestSuite {
     private static int testCounter = 0;
 
-    @BeforeClass
+    @BeforeAll
     public static void beforeAllTests() {
         System.out.println("This is the beginning of tests.");
     }
 
-    @AfterClass
+    @AfterAll
     public static void afterAllTests() {
         System.out.println("All tests are finished.");
     }
 
-    @Before
+    @BeforeEach
     public void beforeEveryTest() {
         testCounter++;
         System.out.println("Preparing to execute test :" + testCounter);
@@ -33,7 +32,7 @@ public class ShapeCollectorTestSuite {
         //When
         shapeCollector.addFigure(triangle);
         //Then
-        Assert.assertEquals(1,shapeCollector.showFigures());
+        Assertions.assertEquals(1,shapeCollector.showFigures());
         System.out.println();
     }
 
@@ -47,7 +46,7 @@ public class ShapeCollectorTestSuite {
         //When
         shapeCollector.removeFigure(circle);
         //Then
-        Assert.assertEquals(0,shapeCollector.showFigures());
+        Assertions.assertEquals(0,shapeCollector.showFigures());
         System.out.println();
     }
 
@@ -61,8 +60,8 @@ public class ShapeCollectorTestSuite {
         //When
         shapeCollector.addFigure(square);
         //Then
-        Assert.assertEquals("square1",shapeCollector.getFigure(0).getShapeName());
-        Assert.assertEquals(square, shapeCollector.getFigure(0));
+        Assertions.assertEquals("square1",shapeCollector.getFigure(0).getShapeName());
+        Assertions.assertEquals(square, shapeCollector.getFigure(0));
         System.out.println();
     }
 
@@ -81,7 +80,7 @@ public class ShapeCollectorTestSuite {
 
 
         //Then
-        Assert.assertEquals(3,shapeCollector.showFigures());
+        Assertions.assertEquals(3,shapeCollector.showFigures());
         System.out.println();
 
     }
