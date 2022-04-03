@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class SearchFlights {
 
-    public boolean findFlight(Flight flight) throws RouteNotFoundException {
+    public void findFlight(Flight flight) throws RouteNotFoundException {
         Map<String, Boolean> flightsMap = new HashMap<>();
         flightsMap.put("Warsaw", true);
         flightsMap.put("Paris", true);
@@ -16,9 +16,9 @@ public class SearchFlights {
         flightsMap.put("Dubai", true);
 
         if(flightsMap.containsKey(flight.getArrivalAirport()) && flightsMap.get(flight.getArrivalAirport())){
-            return true;
+            System.out.println("Flight found");
         }else {
-            throw  new RouteNotFoundException();
+            System.out.println("Flight not found in a list");
         }
     }
 

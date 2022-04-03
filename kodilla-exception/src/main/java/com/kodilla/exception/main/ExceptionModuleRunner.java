@@ -8,7 +8,7 @@ public class ExceptionModuleRunner {
 
     public static void main(String[] args) {
 
-        Flight flight = new Flight("Berlin", "Warsaw");
+        Flight flight = new Flight("Warsaw", "Dubai");
 
         SearchFlights searcher = new SearchFlights();
         try {
