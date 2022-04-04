@@ -15,8 +15,8 @@ public class SearchFlights {
         flightsMap.put("Berlin", false);
         flightsMap.put("Dubai", true);
 
-        if (flightsMap.containsKey(flight.getArrivalAirport()) && flightsMap.get(flight.getArrivalAirport())) {
-            return true;
+        if (flightsMap.containsKey(flight.getArrivalAirport())) {
+            return flightsMap.get(flight.getArrivalAirport());
         } else {
             throw new RouteNotFoundException("message");
         }
