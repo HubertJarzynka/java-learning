@@ -49,4 +49,7 @@ public class TaskList {
     public void setDescription(String description) {
         this.description = description;
     }
+    public void setListName(String listName) {
+        this.listName = listName;
+    }
 }
