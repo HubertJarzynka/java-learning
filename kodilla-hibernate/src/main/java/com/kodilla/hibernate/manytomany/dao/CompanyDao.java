@@ -12,7 +12,9 @@ import java.util.List;
 @Transactional
 @Repository
 public interface CompanyDao extends CrudRepository<Company, Integer> {
+    @Query
+    List<Company> retrieveByFirstThreeOfCompanyName(@Param("THREEFIRSTLETTERS") String threeFirstLetters);
 
     @Query
-    List<Company> retrieveCompaniesByFragmentOfTheName(@Param("FRAGMENT_OF_THE_NAME") String fragmentOfTheName);
+    List<Company> selectCompaniesWithName(@Param("ARG") String arg);
 }

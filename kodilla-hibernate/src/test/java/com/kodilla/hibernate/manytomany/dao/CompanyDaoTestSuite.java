@@ -96,8 +96,8 @@ class CompanyDaoTestSuite {
         companyDao.save(greyMatter);
         int greyMatterId = greyMatter.getId();
 
-        List<Company> companies = companyDao.retrieveCompaniesByFragmentOfTheName("Dat");
-        List<Employee> employees = employeeDao.retrieveEmployeesWithAGivenLastname("Smith");
+        List<Company> companies = companyDao.retrieveByFirstThreeOfCompanyName("Dat");
+        List<Employee> employees = employeeDao.retrieveByEmployeeLastName("Smith");
 
 
         //Then

@@ -1,17 +1,21 @@
 package com.kodilla.hibernate.manytomany;
 
-import com.kodilla.hibernate.task.Task;
+import com.sun.istack.NotNull;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedQuery(
-        name = "Company.retrieveCompaniesByFragmentOfTheName",
-        query = "FROM Company WHERE substring(name,1, 3) = :FRAGMENT_OF_THE_NAME"
-)
 
+@NamedNativeQuery(
+        name = "Company.retrieveByFirstThreeOfCompanyName",
+        query = "SELECT * FROM companies WHERE company_name LIKE CONCAT(SUBSTRING(:THREEFIRSTLETTERS FROM 1 FOR 3), '%')",
+        resultClass = Company.class
+)
+@NamedQuery(
+        name = "Company.selectCompaniesWithNameLike",
+        query = "FROM Company WHERE name LIKE CONCAT('%', :ARG , '%')"
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
@@ -35,27 +39,26 @@ public class Company {
         return id;
     }
 
+    private void setId(int id) {
+        this.id = id;
+    }
+
     @NotNull
     @Column(name = "COMPANY_NAME")
     public String getName() {
         return name;
     }
 
-    private void setId(int id) {
-        this.id = id;
-    }
-
     private void setName(String name) {
         this.name = name;
     }
-
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
     public List<Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(List<Employee> employees) {
+    private void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }
 }
