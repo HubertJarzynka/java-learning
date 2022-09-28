@@ -1,5 +1,5 @@
 package com.kodilla.hibernate.manytomany.facade;
-import com.kodilla.hibernate.manytomany.Company;
+/*import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
 import com.kodilla.hibernate.manytomany.dao.CompanyDao;
 import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
@@ -69,4 +69,4 @@ public class FacadeTestSuit {
         employeeDao.delete(stephanieClarckson);
         employeeDao.delete(lindaKovalsky);
     }
-}
+}*/
